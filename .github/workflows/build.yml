@@ -8,7 +8,8 @@ on:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
-
+    env: 
+      DOCKER_REGISTRY: mathieuvcnt/exerciceargocd 
     strategy:
       matrix:
         node-version: [12, 14, 16]
@@ -35,10 +36,10 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Tag Docker image
-      run: docker tag monimage:latest ${{ secrets.DOCKER_USERNAME }}/monimage:latest
+      run: docker tag monimage:latest $DOCKER_REGISTRY/monimage:latest
 
     - name: Push Docker image to Docker Hub
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/monimage:latest
+      run: docker push $DOCKER_REGISTRY/monimage:latest
 
     - name: Clean up
       run: npm ci && npm run clean && npm cache clean --force
