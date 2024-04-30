@@ -44,8 +44,3 @@ jobs:
     - name: Push Docker image to Docker Hub
       run: docker push $DOCKER_REGISTRY:latest
 
-    - name: Clean up
-      run: npm ci && npm run clean && npm cache clean --force
-
-    - name: Run tests
-      run: echo "Test réussi"
