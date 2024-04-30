@@ -37,11 +37,11 @@ jobs:
 
     - name: Build and tag Docker image
       run: |
-        docker build -t $DOCKER_REGISTRY:latest .
-        docker tag $DOCKER_REGISTRY:latest $DOCKER_REGISTRY:latest
+        docker build -t $DOCKER_REGISTRY:latestimage .
+        docker tag $DOCKER_REGISTRY:latest $DOCKER_REGISTRY:latestimage
 
 
     - name: Push Docker image to Docker Hub
-      run: docker push $DOCKER_REGISTRY:latest
+      run: docker push $DOCKER_REGISTRY:latestimage
 
 
