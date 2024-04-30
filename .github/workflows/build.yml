@@ -36,10 +36,10 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Tag Docker image
-      run: docker tag mathieuvcnt/exerciceargocd:latest mathieuvcnt/exerciceargocd:latest
+      run: docker tag $DOCKER_REGISTRY:latest $DOCKER_REGISTRY:latest
 
     - name: Push Docker image to Docker Hub
-      run: docker push mathieuvcnt/exerciceargocd:latest
+      run: docker push $DOCKER_REGISTRY:latest
 
     - name: Clean up
       run: npm ci && npm run clean && npm cache clean --force
