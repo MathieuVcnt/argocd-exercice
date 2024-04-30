@@ -6,14 +6,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: your-app
+      app: image-deployment
   template:
     metadata:
       labels:
-        app: your-app
+        app: image-deployment
     spec:
       containers:
-      - name: your-container
+      - name: image-deployment
         image: mathieuvcnt/exerciceargocd:latest
         ports:
         - containerPort: 80
