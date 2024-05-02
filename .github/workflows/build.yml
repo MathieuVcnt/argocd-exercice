@@ -27,7 +27,7 @@ jobs:
       run: npm install
 
     - name: Build
-      run: ng build
+      run: npm run build
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
